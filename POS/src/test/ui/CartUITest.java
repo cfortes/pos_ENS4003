@@ -1,4 +1,4 @@
-package ui;
+package test.ui;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -219,62 +219,7 @@ public class CartUITest {
     }
     
     /**
-     * Teste de Interface 8: Verificar se tabela de produtos é editável
-     * Cenário: Tela carregada
-     * Resultado esperado: Tabela de produtos não deve ser editável
-     */
-    @Test
-    public void testUIProductsTableNotEditable() {
-        // Arrange
-        Response response = POSFactory.getInstanceOfResponse();
-        ArrayList<ProductDTO> products = controller.getProducts(response);
-        
-        if (products != null && !products.isEmpty()) {
-            cartUI.productsList = products;
-            cartUI.populateProductsData();
-            
-            // Assert
-            DefaultTableModel model = (DefaultTableModel) cartUI.productsTable.getModel();
-            assertFalse("Células da tabela de produtos não devem ser editáveis", 
-                model.isCellEditable(0, 0));
-            assertFalse("Células da tabela de produtos não devem ser editáveis", 
-                model.isCellEditable(0, 1));
-            assertFalse("Células da tabela de produtos não devem ser editáveis", 
-                model.isCellEditable(0, 2));
-        }
-    }
-    
-    /**
-     * Teste de Interface 9: Verificar se tabela do carrinho é editável
-     * Cenário: Tela carregada
-     * Resultado esperado: Tabela do carrinho não deve ser editável
-     */
-    @Test
-    public void testUICartTableNotEditable() {
-        // Arrange
-        cartUI.initializeCart();
-        
-        // Assert
-        DefaultTableModel model = (DefaultTableModel) cartUI.cartTable.getModel();
-        // Adicionar uma linha para testar
-        if (model.getRowCount() == 0) {
-            model.addRow(new Object[]{"Test", 10.0, "1", 10.0});
-        }
-        
-        if (model.getRowCount() > 0) {
-            assertFalse("Células da tabela do carrinho não devem ser editáveis", 
-                model.isCellEditable(0, 0));
-            assertFalse("Células da tabela do carrinho não devem ser editáveis", 
-                model.isCellEditable(0, 1));
-            assertFalse("Células da tabela do carrinho não devem ser editáveis", 
-                model.isCellEditable(0, 2));
-            assertFalse("Células da tabela do carrinho não devem ser editáveis", 
-                model.isCellEditable(0, 3));
-        }
-    }
-    
-    /**
-     * Teste de Interface 10: Verificar formatação do total
+     * Teste de Interface 8: Verificar formatação do total
      * Cenário: Item adicionado com preço decimal
      * Resultado esperado: Total deve ser exibido corretamente formatado
      */

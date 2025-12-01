@@ -1,4 +1,4 @@
-package security;
+package test.security;
 
 import org.junit.Before;
 import org.junit.Test;

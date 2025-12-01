@@ -1,4 +1,4 @@
-package performance;
+package test.performance;
 
 import org.junit.Before;
 import org.junit.Test;

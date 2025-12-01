@@ -27,7 +27,7 @@ import model.dto.SaleDTO;
 public class CartUI extends javax.swing.JPanel {
 
     private POSController controller;
-    private ArrayList<ProductDTO> productsList;
+    public ArrayList<ProductDTO> productsList;
     private ArrayList<CustomerDTO> customersList;
     SaleDTO sale;
     /**
@@ -113,13 +113,13 @@ public class CartUI extends javax.swing.JPanel {
         }
     }
 
-    private void initializeCart() {
+    public void initializeCart() {
         String[] columnNames = {"Name", "Price", "Quantity", "Total"};
         DefaultTableModel defaultTableModel = new DefaultTableModel(null, columnNames);
         cartTable.setModel(defaultTableModel);
     }
 
-    private void updateProductsTableData(ArrayList<ProductDTO> searchResults) {
+    public void updateProductsTableData(ArrayList<ProductDTO> searchResults) {
         String[] columnNames = {"Name", "Price", "Stock"};
         DefaultTableModel defaultTableModel = new DefaultTableModel(null, columnNames);
         for (ProductDTO product : searchResults) {
@@ -144,7 +144,7 @@ public class CartUI extends javax.swing.JPanel {
 
     }
 
-    private void populateProductsData() {
+    public void populateProductsData() {
         Response res = POSFactory.getInstanceOfResponse();
         productsList = controller.getProducts(res);
 
@@ -648,7 +648,7 @@ public class CartUI extends javax.swing.JPanel {
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
+    public void addToCartBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartBtnActionPerformed
         int selectedRowIndex = productsTable.getSelectedRow();
         if (selectedRowIndex != -1) {
             ProductDTO selectedProduct = productsList.get(selectedRowIndex);
@@ -771,10 +771,10 @@ public class CartUI extends javax.swing.JPanel {
         customerTable.setModel(defaultTableModel);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ui.components.Button addToCartBtn;
+    public ui.components.Button addToCartBtn;
     private javax.swing.JPanel body;
     private javax.swing.JPanel cartList;
-    private rojerusan.RSTableMetro cartTable;
+    public rojerusan.RSTableMetro cartTable;
     private javax.swing.JPanel controls;
     private javax.swing.JButton create_invoice;
     private rojerusan.RSTableMetro customerTable;
@@ -804,11 +804,11 @@ public class CartUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel productList;
-    private rojerusan.RSTableMetro productsTable;
-    private javax.swing.JTextField quantity;
+    public rojerusan.RSTableMetro productsTable;
+    public javax.swing.JTextField quantity;
     private ui.components.Button removeItem;
     private javax.swing.JTextField searchByname;
     private javax.swing.JTextField searchCustomerByName;
-    private javax.swing.JLabel totalofcart;
+    public javax.swing.JLabel totalofcart;
     // End of variables declaration//GEN-END:variables
 }

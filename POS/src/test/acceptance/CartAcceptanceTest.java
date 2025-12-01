@@ -1,4 +1,4 @@
-package acceptance;
+package test.acceptance;
 
 import org.junit.Before;
 import org.junit.Test;
